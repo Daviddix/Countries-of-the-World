@@ -1,0 +1,432 @@
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    transition: all ease-in-out .1s;
+    -webkit-transition: all ease-in-out .1s;
+    -moz-transition: all ease-in-out .1s;
+    -ms-transition: all ease-in-out .1s;
+    -o-transition: all ease-in-out .1s;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: nunito, sans-serif;
+    letter-spacing: .2px;
+}
+
+@font-face {
+    font-family: nunito;
+    src: url("./assets/NunitoSans-Regular.ttf");
+}
+
+:root{
+--darkModeElements: hsl(209, 23%, 22%);
+--darkModeBackground: hsl(207, 26%, 17%);
+--lightModeText: hsl(200, 15%, 8%);
+--lightModeInput: hsl(0, 0%, 52%);
+--lightModeBackground: hsl(0, 0%, 98%);
+--darkModeText: hsl(0, 0%, 100%);
+--lightModeElements: hsl(0, 0%, 100%);
+
+--boxShadow:0 0rem 1rem rgba(0, 0, 0, 0.116);
+}
+
+body.dark{
+    --lightModeText: var(--darkModeText);
+    --lightModeBackground: var(--darkModeBackground);
+    --lightModeElements: var(--darkModeElements);
+    --boxShadow:0 0rem 1rem rgba(0, 0, 0, 0.205);
+}
+
+.container{
+    max-width: 120rem;
+}
+
+a{
+    text-decoration: none;
+    color: initial;
+}
+
+/* styling for the home page on mobile*/
+main{
+    background-color: var(--lightModeBackground);
+    min-height: 100vh;
+}
+
+.home{
+    padding: 3rem 0 0;
+}
+
+header{
+    top:0;
+    left:0;
+    box-shadow: 0 .1rem .5rem rgba(0, 0, 0, 0.103);
+    padding: 2rem 0rem;
+    margin: 0 0 2rem 0;
+    background-color: var(--lightModeElements);
+    position: fixed;
+    width:100vw;
+    z-index: 4;
+}
+
+header .inner-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 90%;
+}
+
+.inner-header >a{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--lightModeText);
+}
+
+.inner-header .theme-switcher{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.theme-switcher svg{
+    margin: 0 .6rem 0 0;
+    color: var(--lightModeText);
+    fill: white;
+}
+
+body.dark .theme-switcher svg{
+    stroke-width: 0px;
+}
+
+.theme-switcher p{
+    font-size: 1.4rem;
+    color: var(--lightModeText);
+    font-weight: 600;
+}
+
+form{
+    width: 90%;
+    max-width: 45rem;
+    margin:6rem auto 3rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.4rem 1rem;
+    background-color: var(--lightModeElements);
+    box-shadow: 0 .3rem 1rem rgba(0, 0, 0, 0.103);
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+form svg{
+    margin: 0 2rem;
+    max-width: 2rem;
+    color:var(--lightModeText);
+}
+
+form input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--lightModeElements);
+    color: var(--lightModeText);
+}
+
+form input::placeholder{
+    color: var(--lightModeText);
+    opacity: .4;
+}
+
+.select-faker{
+    margin-left: 5vw;
+    margin-bottom: 4rem;
+    padding: 1.4rem 2rem;
+    background-color: var(--lightModeElements);
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    box-shadow: var(--boxShadow);
+    width: 20rem;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.select-faker .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    color: var(--lightModeText);
+}
+
+.title img{
+    max-width: 1.5rem;
+}
+
+.select-faker .regions{
+    position: absolute;
+    bottom: -17.0rem;
+    left:0;
+    width: 20rem;
+    padding: 1.4rem 0rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    box-shadow: var(--boxShadow);
+    background-color: var(--lightModeElements);
+    z-index: 3;
+}
+
+.regions p{
+    font-size: 1.4rem;
+    margin: 0 0 .8rem 0;
+    padding: 0 2rem;
+    color: var(--lightModeText);
+}
+
+.countries{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    margin: auto;
+    column-gap: 4rem;
+}
+
+.country{
+    border-radius: .5rem;
+    width: 75vw;
+    max-width: 26rem;
+    margin: 2rem auto;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: var(--boxShadow);
+}
+
+.country img{
+    display: block;
+    height: 15rem;
+    width:100%;
+    object-fit: cover;
+}
+
+.country .country-details{
+    background-color: var(--lightModeElements);
+    padding: 2rem 2rem 3rem;
+    color: var(--lightModeText);
+    height: 100%;
+}
+
+.country-details .name{
+    font-size: 1.6rem;
+    margin: 0 0 1rem 0;
+    }
+
+.country-details p{
+    font-size: 1.2rem;
+    margin: 0 0 .5rem 0;
+}
+
+.country-details b{
+    font-weight: 600;
+    letter-spacing: .4px;
+    font-size: 1.3rem;
+}
+
+section .loader{
+    font-size: 2.5rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width:90vw;
+    padding: 10rem 0 0;
+    margin: auto;
+    max-width:30rem;
+    color: var(--lightModeText);
+}
+
+.loader svg{
+    color: var(--lightModeText);
+}
+
+/* styling for the single country page*/
+.single-country{
+    padding: 1rem 0 0;
+}
+.country-details-container{
+    color: var(--lightModeText);
+}
+
+.single-country .back{
+    box-shadow: var(--boxShadow);
+    max-width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    margin: 9rem 5vw;
+}
+.back{
+    background-color: var(--lightModeElements);
+}
+
+.back svg{
+    max-width: 2rem;
+    color: var(--lightModeText);
+}
+
+.back p{
+    font-size: 1.4rem;
+    margin: 0 0 0 1rem;
+    color: var(--lightModeText);
+}
+
+.image-details{
+    margin: auto;
+}
+
+.image-details > img{
+    display:block;
+    width: 70vw;
+    max-width: 50rem;
+    height: 20rem;
+    margin:0 auto 4rem;
+    object-fit: cover;
+}
+
+.country-details-container{
+    max-width: 70vw;
+    margin: auto;
+    padding: 0 0 2rem 0;
+}
+
+.country-details-container .name{
+    font-size: 1.8rem;
+    margin: 0 0 2rem 0;
+}
+
+.country-details-container .first-container,
+.country-details-container .second-container{
+    margin: 0 0 4rem 0;
+}
+
+.country-details-container p{
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+}
+
+.border-countries{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2rem; 
+}
+
+.border-countries p{
+    box-shadow: var(--boxShadow);
+    padding: 1rem;
+    text-align: center;
+    min-width: 10rem;
+    word-wrap: break-word;
+    background-color: var(--lightModeElements);
+}
+
+/* styling for tablets*/
+@media screen and (min-width:800px) {
+    header{
+        margin: 0 0 4rem 0;
+    }
+
+    .search-and-filter{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 90vw;
+        padding-top: 6rem;
+        margin:0rem auto;
+    }
+
+    form{
+        margin:0 auto 4rem 0;
+    }
+
+    select{
+        display: block;
+        margin: 0;
+    }
+}
+
+/* styling for desktops */
+@media screen and (min-width:1024px) {
+    .image-details{
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    .image-details > img{
+        display:block;
+        height: 100%;
+        margin: 0;
+        width:50rem;
+        object-fit: cover;
+    }
+
+    .country-details-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        padding: 0rem;
+        column-gap: 4rem;
+    }
+
+    .country-details-container .name, .third-container{
+        grid-column: span 2;
+    }
+}
+
+/* hover styles */
+.theme-switcher:hover{
+    cursor: pointer;
+}
+
+form svg:hover{
+    cursor: pointer;
+}
+
+.country:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.regions p:hover{
+    font-weight: 900;
+}
+
+.back:hover{
+    cursor: pointer;
+}
+
+.border-countries:hover{
+    cursor: pointer;
+}
