@@ -19,11 +19,12 @@ function CountryPage() {
           setSingleCountry({})
           const res = await fetch(`https://restcountries.com/v3.1/name/${country}`)
                 const raw = await res.json();
-                
+                console.log(raw.status)
                   if (raw.status) {
                     setLoading(false)
                     alert("Oops... it seems like the api doesn't have data on this country")
-                    navigate("/")
+                    // here user will be navigated back to the previous country where he is but not to the home everytime.
+                    navigate(-1)
                   }
                  setSingleCountry(raw[0])
                 }
