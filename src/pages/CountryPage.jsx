@@ -9,23 +9,30 @@ function CountryPage() {
     const [singleCountry, setSingleCountry] = useState({})
     const navigate = useNavigate()
 
-    function fetchData(country){
-      setSingleCountry({})
-      fetch(`https://restcountries.com/v3.1/name/${country}`)
-            .then(raw=> raw.json())
-            .then((data)=>{
-              if (data.status) {
-                setLoading(false)
-                alert("Oops... it seems like the api doesn't have data on this country")
-                navigate("/")
-              }
-             setSingleCountry(data[0])
-            }
-            )
-    }
 
+
+    // handled some errors while fetching the data and made some changes in useEffect hook to smooth fetching of the details.
     useEffect(()=>{
-      fetchData(country)
+
+      try {
+        async function fetchData(country){
+          setSingleCountry({})
+          const res = await fetch(`https://restcountries.com/v3.1/name/${country}`)
+                const raw = await res.json();
+                console.log(raw.status)
+                  if (raw.status) {
+                    setLoading(false)
+                    alert("Oops... it seems like the api doesn't have data on this country")
+                    // here user will be navigated back to the previous country where he is but not to the home everytime.
+                    navigate(-1)
+                  }
+                 setSingleCountry(raw[0])
+                }
+                
+        fetchData(country)
+      } catch (error) {
+        console.error("Error fetching country details...",error);
+      }
     },[country])
 
     const borderCountries = singleCountry?.borders?.map((borderingCountry)=>{
